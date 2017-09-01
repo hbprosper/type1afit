@@ -30,4 +30,4 @@ Then, run the command
 jupyter notebook
 ```
 in order to run the notebook in a browser. Navigate to the
-desired notebook.
+desired notebook. (NOTE: your notebook program may be called ipython.)
