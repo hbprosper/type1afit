@@ -8,17 +8,17 @@ __[ROOT](http://root.cern.ch)__. The tutorials use the
 
 ## Setup
 
-   * Install 
-__[Jupyter](https://root.cern.ch/root-has-its-jupyter-kernel)__ for
+   * Install the
+__[Jupyter](https://root.cern.ch/root-has-its-jupyter-kernel)__ notebook package for
 your operating system.
    * Install this package:
-	```
-	git clone https://github.com/hbprosper/type1afit
-	cd type1afit
-	```
+```
+git clone https://github.com/hbprosper/type1afit
+cd type1afit
+```
 Then, assuming you are in the directory __type1afit__, run the command
 ```
-	jupyter notebook
+jupyter notebook
 ```
 in order to run the notebook in a browser. Then navigate to the
 desired notebook.
