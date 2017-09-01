@@ -8,10 +8,10 @@ __[ROOT](http://root.cern.ch)__. The tutorials use the
 
 ## Setup
 
-    * Install 
+   * Install 
 __[Jupyter](https://root.cern.ch/root-has-its-jupyter-kernel)__ for
 your operating system.
-    * Install this package:
+   * Install this package:
 	```
 	git clone https://github.com/hbprosper/type1afit
 	cd type1afit
