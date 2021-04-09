@@ -20,65 +20,66 @@
 #include <string>
 using namespace std;
 //-----------------------------------------------------------------------------
-struct Model
-{
-  int model;
-  
-  Model(int _model=0) : model(_model)
-  {
-    switch (model)
-      {
-      case 0: // LCDM
-      default:
-	  cout << endl << "\tLCDM model" << endl << endl;
-	  break;
-      case 1: // phantom
-	cout << endl << "\tphantom model" << endl << endl;
-	break;
-      }    
-  }
-  ~Model() {}
-  
-  double operator()(double a, double* p)
-  {
-    // p[0] = OL
-    // p[1] = OM
-    // p[2] = H0
-    // p[3] = n
-    assert(p);
-    double y = 0;
-    switch (model)
-      {
-      case 0: // LCDM
-      default:
-	{
-	  // a^3 * [Omega_M/a^3 + (1-Omega_M-Omega_L)/a^2 + Omega_L]
-	  double OM = p[0];
-	  double OL = p[1];
-	  y = OM + (1 - OM - OL)*a + OL*a*a*a;
-	  if ( y < 0 ) y = 1.e20;
-	}
-	break;
-      case 1: // phantom
-	{
-	  // a^3 * [ exp(a^n-1)/a^3 ]
-	  double n = p[3];
-	  y = exp(pow(a, n)-1);
-	}
-	break;
-      }
-    return y;
-  }
-};
-
 struct CosmicCode
 {
-  Model model;
+  struct CModel
+  {
+    int model;
+
+    CModel(int _model=0) : model(_model)
+    {
+      switch (model)
+	{
+	case 0: // LCDM
+	default:
+	  cout << endl << "\tLCDM model" << endl << endl;
+	  break;
+	case 1: // phantom
+	  cout << endl << "\tphantom model" << endl << endl;
+	  break;
+	}    
+    }
+    ~CModel() {}
+  
+    double operator()(double a, double* p)
+    {
+      // p[0] = OL
+      // p[1] = OM
+      // p[2] = H0
+      // p[3] = n
+      assert(p);
+      double y = 0;
+      switch (model)
+	{
+	case 0: // LCDM
+	default:
+	  {
+	    // a^3 * [Omega_M/a^3 + (1-Omega_M-Omega_L)/a^2 + Omega_L]
+	    double OM = p[0];
+	    double OL = p[1];
+	    y = OM + (1 - OM - OL)*a + OL*a*a*a;
+	    if ( y < 0 ) y = 1.e20;
+	  }
+	  break;
+	case 1: // phantom
+	  {
+	    // a^3 * [ exp(a^n-1)/a^3 ]
+	    double n = p[3];
+	    y = exp(pow(a, n)-1);
+	  }
+	  break;
+	}
+      return y;
+    }
+  };
+    
+    
+  CModel model;
   double offset;
   int N;
   
-  CosmicCode(Model& _model, int _N=200)
-    : model(_model),
+  CosmicCode(int _ID, int _N=200)
+    : model(CModel(_ID)),
       N(_N),
       offset(5*log10(2.99*pow(10.0, 5.0)) + 25)
   {}
