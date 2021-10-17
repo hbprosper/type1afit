@@ -1,6 +1,7 @@
 # type1afit
 These tutorials show how to use the __[CERN](http://home.cern/)__
-minimization package Minuit (developed by __[Dr. Fred James](https://www.researchgate.net/profile/Fred_James2)__) to fit simple cosmological models to the Union 2.1 Type1a
+minimization package Minuit (developed by __[Dr. Fred James](https://www.researchgate.net/profile/Fred_James2)__) to fit 
+simple cosmological models to the Union 2.1 Type1a
 supernova data. Minuit, which is available in the CERN data analysis package __[ROOT](http://root.cern.ch)__, can be used directly or via the probability modeling package 
 __[RooFit](https://root.cern.ch/roofit)__. Both ways are illustrated in these tutorials.
 
