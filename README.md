@@ -10,19 +10,10 @@ __[RooFit](https://root.cern.ch/roofit)__. Both ways are illustrated in these tu
    * Install the
 __[Jupyter](https://root.cern.ch/root-has-its-jupyter-kernel)__ notebook package for
 your operating system.
-   * Install the packages histutil and type1afit
-```
-cd
-mkdir -p external
-cd external
-git clone https://github.com/hbprosper/histutil
 
-cd
-mkdir -p tutorials
-cd tutorials
+```
 git clone https://github.com/hbprosper/type1afit
 cd type1afit
-source $HOME/external/histutil/setup.sh
 ```
 Then, run the command
 ```
