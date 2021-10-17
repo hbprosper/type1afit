@@ -7,7 +7,7 @@ __[RooFit](https://root.cern.ch/roofit)__. Both ways are illustrated in these tu
 
 ## Setup
 
-   * Install the
+Install the
 __[Jupyter](https://root.cern.ch/root-has-its-jupyter-kernel)__ notebook package for
 your operating system.
 
