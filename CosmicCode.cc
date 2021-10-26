@@ -37,6 +37,9 @@ struct CosmicCode
         case 1: // phantom
           cout << endl << "\tphantom model" << endl << endl;
           break;
+        case 2: // CM
+          cout << endl << "\tCM model" << endl << endl;
+          break;
         }    
     }
     ~CModel() {}
@@ -69,6 +72,17 @@ struct CosmicCode
 	    // a^3 * [ exp(a^n-1)/a^3 ]
 	    double n = p[0];
 	    y = exp(pow(a, n)-1);
+	  }
+	  break;
+	case 2: // CM
+	  {
+	    // p[0]: OM
+        // p[1]: H0
+	    //
+	    // a^3 * [Omega_M/a^3 + (1-Omega_M)/a^2]
+	    double OM = p[0];
+	    y = OM + (1 - OM)*a;
+        if ( y < 0 ) y = 1.e20;
 	  }
 	  break;
 	}
@@ -114,6 +128,13 @@ struct CosmicCode
 	{
 	  OM = 1;
 	  OL = 0;
+	  H0 = p[1];
+	}
+	break;
+      case 2: // CM
+	{
+	  OM = p[0];
+      OL = 0;
 	  H0 = p[1];
 	}
 	break;
