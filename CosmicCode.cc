@@ -35,7 +35,7 @@ struct CosmicCode
           cout << endl << "\tLCDM model" << endl << endl;
           break;
         case 1: // phantom
-          cout << endl << "\tphantom model" << endl << endl;
+          cout << endl << "\tquintom model" << endl << endl;
           break;
         case 2: // CM
           cout << endl << "\tCM model" << endl << endl;
@@ -64,7 +64,7 @@ struct CosmicCode
 	    if ( y < 0 ) y = 1.e20;
 	  }
 	  break;
-	case 1: // phantom
+	case 1: // quintom
 	  {
 	    // p[0]: n
 	    // p[1]: H0
@@ -100,10 +100,10 @@ struct CosmicCode
       return (void*)this;
   }
     
-  CosmicCode(int _id, int _N=200)
+  CosmicCode(int _id, int _N=100)
     : model(CModel(_id)),
-      N(_N),
-      offset(5*log10(2.99*pow(10.0, 5.0)) + 25)
+      offset(5*log10(2.99*pow(10.0, 5.0)) + 25),
+      N(_N)
   {}
   ~CosmicCode() {}
 
@@ -124,7 +124,7 @@ struct CosmicCode
 	  H0 = p[2];
 	}
 	break;
-      case 1: // phantom
+      case 1: // quintom
 	{
 	  OM = 1;
 	  OL = 0;
